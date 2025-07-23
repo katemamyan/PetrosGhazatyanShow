@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Petros in numbers</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-size: 1.5em;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-rendering: optimizeLegibility;
+        }
+
+        .content {
+            max-width: 700px;
+            font-size: 0.9em;
+            margin: auto;
+        }
+
+        .header {
+            padding: 2em;
+        }
+
+        a {
+            color: #f05349;
+        }
+
+        .footer {
+            background: #f4f4f4;
+            text-align: center;
+            font-size: 1em;
+            margin-top: 4em;
+            padding: 4em 0;
+        }
+
+        h1 {
+            font-family: 'Lora', Georgia, serif;
+            font-weight: bold;
+            font-size: 3em;
+            line-height: 1.1;
+        }
+
+        .subhead {
+            font-family: 'Lora', Georgia, serif;
+            font-weight: bold;
+            font-size: 2em;
+            line-height: 1.1;
+            color: #ffffff;
+
+        }
+        .video_subhead {
+            font-family: 'Lora', Georgia, serif;
+            font-weight: normal;
+            font-size: 1.5em;
+            line-height: 1.1;
+            color: #ffffff;
+        }
+
+        .full-width figure {
+            text-align: center;
+        }
+        .large-text {
+            font-size: 0.9em; /* Adjust the size to your preference */
+        }
+        .vid-container {
+        max-width: 700px;
+
+        display: grid;
+        grid-template-columns: 200px 200px 200px;
+        max-block-size: 200px;
+        padding: 2px;
+        }
+        .vid-container > div {
+        background-color: #f1f1f1;
+        padding: 10px;
+        font-size: 30px;
+        text-align: center;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* margin on mobile */
+        @media (max-width: 640px) {
+            body {
+                font-size: 18px;
+            }
+            .content {
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+        }
+    </style>
+    <style>
+        .with-image-bg {
+            position: relative;
+            background-size: cover;
+            margin-bottom: 2em;
+
+            /* Center everything inside */
+            min-height: 70svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* White text with a shadow */
+            color: white;
+            text-shadow: 0px 0px 30px black,
+                0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .with-image-bg {
+            background-image: url('images/cover_image.png');
+            }
+            
+        .highlight  {
+            color: #2622A4;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            padding-top: 20px;
+            margin: auto;
+
+            display: flex;              /* Use Flexbox for layout */
+            justify-content: space-between; /* Space between SVG and text */
+            align-items: center;        /* Center items vertically */
+            padding-left: 20px;
+            padding-right: 20px;              /* Add padding around the container */
+            }
+
+        .left {
+            flex: 1;                    /* Take up 50% of the container */
+            padding-right: 10px;        /* Optional padding for spacing */
+            }
+
+        .right {
+            flex: 1;                    /* Take up the other 50% of the container */
+            padding-left: 10px;         /* Optional padding for spacing */
+            text-align: left;           /* Optional alignment for the text */
+            }
+
+        p {
+            font-size: 1rem;            /* Font size for the paragraph */
+            color: #333;                /* Dark text color for better readability */
+            line-height: 1.6;           /* Line height for paragraph readability */
+            }
+        .fade-in {
+            opacity: 0;
+            transform: translateX(-100%);   /* Start off the left side */
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transition both opacity and position */
+            }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateX(0);  
+            }
+
+
+        /* Mobile styling */
+@media (max-width: 640px) 
+
+{
+    body {
+        font-size: 1.2em; /* Reduce font size for mobile */
+    }
+    .with-image-bg {
+        background-position: 70% 100%; /* Focus on the right side of the image */
+        height: 200px; /* Adjust the height as needed for mobile */
+    }
+    .header {
+        padding: 1.5em; /* Adjust padding for mobile */
+    }
+
+    .content {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    h1 {
+        font-size: 2em; /* Adjust heading font size for mobile */
+        text-align: center;
+    }
+
+    .subhead {
+        font-size: 1.5em; /* Adjust subheading font size */
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;  /* Stack left and right sections vertically on mobile */
+        padding-left: 0;          /* Remove extra padding on small screens */
+        padding-right: 0;
+        max-height: unset;        /* Remove max height */
+    }
+
+    .left, .right {
+        flex: none;               /* Remove the flex property so they take 100% width */
+        width: 100%;              /* Ensure both sections take up the full width */
+        padding: 0;
+        text-align: center;       /* Center the text */
+    }
+
+    .fade-in {
+        width: 100%;              /* Make sure SVG takes full width */
+        height: auto;             /* Keep aspect ratio of SVG */
+    }
+
+    .large-text {
+        font-size: 1em; /* Adjust text size */
+        margin-bottom: 20px;
+    }
+
+    .footer {
+        padding: 2em 1em; /* Adjust footer padding */
+        font-size: 0.9em;
+    }
+
+    .highlight {
+        font-size: 1.1em; /* Increase font size for highlights on mobile */
+    }
+
+    /* Ensure that the fade-in is visible properly on mobile */
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateX(0);  /* Reset position after scroll */
+    }
+    }
+    
+
+    </style>
+    <style>
+        .with-video-bg {
+            position: relative;
+            background-size: cover;
+            margin-bottom: 2em;
+            background-color: rgba(0, 0, 0, 0.5);
+
+            /* Center everything inside */
+            min-height: 70svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* White text with a shadow */
+            color: white;
+            text-shadow: 0px 0px 30px black,
+                0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .video-background video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            
+        }
+    </style>
+      <style>
+        .video-grid {
+          display: flex;
+          gap: 20px; /* space between videos */
+          justify-content: center; /* center the grid horizontally */
+          flex-wrap: wrap; /* allow wrapping on smaller screens */
+          padding: 20px;
+        }
+    
+        .video-item iframe {
+          width: 100%;
+          height: 200px;
+        }
+    
+        .video-item {
+          flex: 1 1 30%;
+          max-width: 300px;
+        }
+    
+        @media (max-width: 900px) {
+          .video-item {
+            flex: 1 1 100%;
+          }
+        }
+      </style>
+</head>
+
+<body>
+    <div class="header with-image-bg">
+        <div class="content">
+            <h1>Who’s Petros Ghazaryan’s Favorite Guest? 
+            </h1>
+            <p class="subhead">Statistical Breakdown</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="byline">
+            <p>By Katya Mamyan</p>
+        </div>
+        <h2>
+            Armenia’s Late-Night Interview Star – Here’s Why You Should Care
+        </h2>
+
+        <p class="content">Armenia’s most famous and most-watched interviewer! You’ve probably seen him on <a href="https://www.1tv.am/en/program/Interview-with-Petros-Ghazaryan">Public TV</a>, holding court with ministers, 
+            political experts, and the occasional official who often try to escape his sharp questions. His program airs almost every 
+            night around 10 PM, a prime spot for late-night political discussions.
+        </p>
+   
+    </div>
+    <div>
+        <!-- Countup for Interviews -->
+        <div class="content" id="countup-section">
+            <p class="content">From June 20, 2021, to July 3, 2025, <span style="font-weight:bold">Petros Ghazaryan conducted  <span id="interviewsCount" class="highlight">0</span> interviews.</span></p>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Left section with SVG -->
+        <div class="left">
+            <img src="images/buble.svg" alt="SVG Image" width="600" height="600" class="fade-in" />
+        </div>
+    
+        <!-- Right section with text -->
+        <div class="right">
+            <p class="large-text">This is a spoiler about the most frequent guests on Petros Ghazaryan’s show! 
+                If the size of each bubble represents how often they've appeared, what do 
+                you think — how many times have Vahagn Aleksanyan and Andranik Kocharyan 
+                been featured on the show? Scroll down to see the numbers!</p>
+
+        </div>
+    </div>
+    <div class="content">
+        <h3>
+            Petros Ghazaryan’s Most Frequent Guests
+        </h3>
+
+        <p class="content">For this article, we analyzed 429 of those interviews, which were conducted with 46 guests who 
+            <span style="font-weight:bold">each appeared on the show at least five times</span>.
+            <br></br>
+            These frequent guests were divided into two categories: <span style="color:#AE6557; font-weight:bold;">members of Armenia's ruling party - 
+            Civil Contract</span>, and other guests. This categorization allowed us to further explore the dynamics 
+            and representation of Civil Contract's political figures.
+        </p>
+        <div><br><br></div>
+
+        <iframe title="Frequent Faces on Petros Ghazaryan’s Show: Guests: 5+ Appearances" aria-label="Table" id="datawrapper-chart-wP83E" src="https://datawrapper.dwcdn.net/wP83E/2/" scrolling="no" frameborder="2" style="width: 0; min-width: 100% !important; border: none;" height="4049" data-external="1"></iframe>
+        <script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}})}();
+        </script>
+        <p class="content"> Despite receiving numerous invitations, Edmon Marukyan's appearances on the state channel, for example, have decreased over time. A breakdown by year reveals that, he appeared less frequently on Petros Ghazaryan's show, and by 2024-2025, he was no longer a guest.</p>
+        <h3>
+            What About Time Allocation in Petros Ghazaryan’s Interviews
+        </h3>
+    </div>    
+        <div class="container">
+            <!-- Left section with SVG -->
+            <div class="left">
+                <img src="images/duration_proportion.svg" alt="SVG Image" width="400" height="400" />
+            </div>
+        
+            <!-- Right section with text -->
+            <div class="right">
+                <p class="large-text">Based on our analysis of 429 interviews, we calculated the total amount of time 
+                    spent on interviews with members of <span style="color:#AE6557;">Armenia's ruling party, Civil Contract</span>, and compared it to 
+                    other guests. Our data shows that 52.7% of the total interview time was dedicated to ruling 
+                    party representatives. Is this proportion significant? The decision is yours to make.
+                    </p>
+            </div>
+        </div>
+    <div class="content">
+        <p class="content">The 'Other' category includes individuals from the opposition, neutral experts, and those with a pro-ruling party reputation. You can refer to the table above for a detailed breakdown of these guests, which will help provide a clearer understanding of who they are.  
+        </p>
+        <h3>Nikol Pashinyan's interviews takes more than 2 times longer that another ones.
+        </h3>
+        <div class="header with-video-bg">
+            <div class="video-background">
+                <video src="images/Pashinyan.mov" preload="auto" tabindex="0" playsinline autoplay loop muted></video>
+            </div>
+            <div class="content">
+                <h1>When the Prime Minister Talks, Time Stands Still</h1>
+                <p class="video_subhead">While the average interview duration across all 880 interviews is <span style="color:#AE6557; background-color:white ;">24.5 minutes</span>, interviews with Pashinyan typically take<span style="color:#AE6557; background-color:white ;"> around 65.5 minutes</span>, which is more than two times longer than the average.</p>
+            </div>
+        </div>
+        
+        
+      
+
+
+        <h3>
+            We can't mesure how many people watching the show from their homes, but there is what YouTube says!
+        </h3>
+        
+        <p class="content"> Using the YouTube API, we gathered view counts for each interview conducted by Petros Ghazaryan over the past four years. 
+            The most-watched interviews are listed below. Dominating the top spots are two interviews with Samvel Babayan, a prominent figure 
+            in Armenian and Artsakh politics. 
+        </p>
+        
+        </div>
+        <div class="video-grid">
+            <div class="video-item">
+                <p class="content">Views: <span class="highlight">383 166</span></p>
+              <iframe src="https://www.youtube.com/embed/Pf2r6gW7i7g" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-item">
+                <p class="content">Views: <span class="highlight">219 814</span></p>
+              <iframe src="https://www.youtube.com/embed/g2tugYdOW3o" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-item">
+                <p class="content">Views: <span class="highlight">216 607</span></p>
+              <iframe src="https://www.youtube.com/embed/aUdl7-LMoA0" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+           
+        <p class="content">
+            In third place is Ruben Hakhverdyan, a renowned Armenian singer, songwriter.
+        </p>
+        <div class="content">
+        </br>
+        <h4>Data Sources:</h4>
+        <li>Armenian Public TV <a href="https://www.1tv.am/en/program/videos/Interview-with-Petros-Ghazaryan/">website</a></li>
+        <li>YouTube API</li>
+        </div>     
+    <div class="footer">
+        <div class="content">
+            <p>Hey there, thanks for sticking around till the end! 🎉 This is my very first project in the Lede Program! 🚀 Wanna check out the full code? You can find it on my <a href="https://github.com/katemamyan/LEDE_PROGRAM">GitHub</a> — it's all yours to explore! 😎</p>
+<p>Also, feel free to join me on my <a href="https://t.me/datajourno">Telegram</a> where I share all the behind-the-scenes action of my learning journey! 📚💡</p>
+        </div>
+    </div>
+
+<script>
+    // Set up the Intersection Observer
+    const countupSection = document.getElementById('countup-section');
+    const interviewsCount = document.getElementById('interviewsCount');
+    const timeCount = document.getElementById('timeCount');
+    const timeCountHours = document.getElementById('timeCountHours');
+    const timeCountMinutes = document.getElementById('timeCountMinutes');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Start the count-up when the section is visible
+                startCountUp();
+                observer.unobserve(countupSection); // Stop observing once triggered
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the element is in view
+    });
+
+    observer.observe(countupSection);
+
+    // Function to perform count-up
+    function startCountUp() {
+        let interviews = 0;
+        const targetInterviews = 880; // Set your target value here
+        const interval = setInterval(() => {
+            interviews += 1;
+            interviewsCount.innerText = interviews;
+
+            if (interviews >= targetInterviews) {
+                clearInterval(interval); // Stop once the target is reached
+            }
+        }, 10); // Adjust the speed by changing the interval (milliseconds)
+
+    // Intersection Observer to detect when the SVG is in view
+        const svgElement = document.querySelector('.fade-in'); // Target the SVG with fade-in class
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    svgElement.classList.add('visible'); // Add the visible class to trigger the fade-in
+                    observer.unobserve(entry.target); // Stop observing once the SVG is in view
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the SVG is visible
+        });
+
+        observer.observe(svgElement); // Start observing the SVG
+
+    }
+
+</script>
+</body>
+</html>
