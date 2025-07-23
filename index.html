@@ -68,11 +68,7 @@
         .full-width figure {
             text-align: center;
         }
-        .fade-in {
-        display: block !important;
-        visibility: visible !important;
-        }
-
+ 
         .large-text {
             font-size: 0.9em; /* Adjust the size to your preference */
         }
@@ -164,11 +160,6 @@
             line-height: 1.6;           /* Line height for paragraph readability */
             }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateX(0);  
-            }
-
 
         /* Mobile styling */
 @media (max-width: 640px) 
@@ -213,6 +204,9 @@
         padding: 0;
         text-align: center;       /* Center the text */
     }
+    img {
+        max-width: 100%;
+    }
 
     .large-text {
         font-size: 1em; /* Adjust text size */
@@ -226,13 +220,6 @@
 
     .highlight {
         font-size: 1.1em; /* Increase font size for highlights on mobile */
-    }
-
-    /* Ensure that the fade-in is visible properly on mobile */
-    .fade-in.visible {
-        max-width: 100%;
-        opacity: 1;
-        transform: translateX(0);  /* Reset position after scroll */
     }
     }
     
@@ -443,21 +430,6 @@
 
 <script>
 
-// ---- Fade-in SVG observer (separate from countup)
-const svgElement = document.querySelector('.fade-in');
-
-if (svgElement) {
-    const svgObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                svgElement.classList.add('visible');
-                observer.unobserve(svgElement);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    svgObserver.observe(svgElement);
-}
 
 // ---- Count-up observer
 const countupSection = document.getElementById('countup-section');
