@@ -68,6 +68,11 @@
         .full-width figure {
             text-align: center;
         }
+        .fade-in {
+        display: block !important;
+        visibility: visible !important;
+        }
+
         .large-text {
             font-size: 0.9em; /* Adjust the size to your preference */
         }
@@ -158,11 +163,6 @@
             color: #333;                /* Dark text color for better readability */
             line-height: 1.6;           /* Line height for paragraph readability */
             }
-        .fade-in {
-            opacity: 0;
-            transform: translateX(-100%);   /* Start off the left side */
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transition both opacity and position */
-            }
 
         .fade-in.visible {
             opacity: 1;
@@ -214,11 +214,6 @@
         text-align: center;       /* Center the text */
     }
 
-    .fade-in {
-        width: 100%;              /* Make sure SVG takes full width */
-        height: auto;             /* Keep aspect ratio of SVG */
-    }
-
     .large-text {
         font-size: 1em; /* Adjust text size */
         margin-bottom: 20px;
@@ -235,6 +230,7 @@
 
     /* Ensure that the fade-in is visible properly on mobile */
     .fade-in.visible {
+        max-width: 100%;
         opacity: 1;
         transform: translateX(0);  /* Reset position after scroll */
     }
@@ -300,6 +296,7 @@
           .video-item {
             flex: 1 1 100%;
           }
+          
         }
       </style>
 </head>
@@ -445,57 +442,52 @@
     </div>
 
 <script>
-    // Set up the Intersection Observer
-    const countupSection = document.getElementById('countup-section');
-    const interviewsCount = document.getElementById('interviewsCount');
-    const timeCount = document.getElementById('timeCount');
-    const timeCountHours = document.getElementById('timeCountHours');
-    const timeCountMinutes = document.getElementById('timeCountMinutes');
 
-    const observer = new IntersectionObserver((entries, observer) => {
+// ---- Fade-in SVG observer (separate from countup)
+const svgElement = document.querySelector('.fade-in');
+
+if (svgElement) {
+    const svgObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Start the count-up when the section is visible
-                startCountUp();
-                observer.unobserve(countupSection); // Stop observing once triggered
+                svgElement.classList.add('visible');
+                observer.unobserve(svgElement);
             }
         });
-    }, {
-        threshold: 0.5 // Trigger when 50% of the element is in view
+    }, { threshold: 0.5 });
+
+    svgObserver.observe(svgElement);
+}
+
+// ---- Count-up observer
+const countupSection = document.getElementById('countup-section');
+const interviewsCount = document.getElementById('interviewsCount');
+
+const countObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            startCountUp();
+            observer.unobserve(countupSection);
+        }
     });
+}, { threshold: 0.5 });
 
-    observer.observe(countupSection);
+countObserver.observe(countupSection);
 
-    // Function to perform count-up
-    function startCountUp() {
-        let interviews = 0;
-        const targetInterviews = 880; // Set your target value here
-        const interval = setInterval(() => {
-            interviews += 1;
-            interviewsCount.innerText = interviews;
+// ---- Count-up function
+function startCountUp() {
+    let interviews = 0;
+    const targetInterviews = 880;
+    const interval = setInterval(() => {
+        interviews += 1;
+        interviewsCount.innerText = interviews;
 
-            if (interviews >= targetInterviews) {
-                clearInterval(interval); // Stop once the target is reached
-            }
-        }, 10); // Adjust the speed by changing the interval (milliseconds)
+        if (interviews >= targetInterviews) {
+            clearInterval(interval);
+        }
+    }, 10);
 
-    // Intersection Observer to detect when the SVG is in view
-        const svgElement = document.querySelector('.fade-in'); // Target the SVG with fade-in class
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    svgElement.classList.add('visible'); // Add the visible class to trigger the fade-in
-                    observer.unobserve(entry.target); // Stop observing once the SVG is in view
-                }
-            });
-        }, {
-            threshold: 0.5 // Trigger when 50% of the SVG is visible
-        });
-
-        observer.observe(svgElement); // Start observing the SVG
-
-    }
+}
 
 </script>
 </body>
